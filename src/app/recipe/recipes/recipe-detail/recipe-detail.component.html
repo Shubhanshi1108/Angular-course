@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-sm-12">
+        <img [src]="recipe.imagePath" alt="{{recipe.name}}" class="img-responsive"
+        style="max-height: 300px;">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4>{{recipe.name}}</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        {{recipe.description}}
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-sm-12">
+       <ul class="list-group">
+        <li class="list-group-item" *ngFor="let ingredient of recipe.ingredients">
+            {{ingredient.name}} - {{ingredient.amount}}
+        </li>
+       </ul>
+    </div>
+    <button class="mt-2 btn btn-warning" style="border-radius: 30px;" (click)="onAddToShoppingList()">Add To Shopping List</button>
+</div>
+
+<hr>
+<div class="row">
+    <div class="col-sm-12 btn-group" id="btn-group">
+        <button class="btn btn-primary">Edit Recipe</button>
+        <button class="btn btn-danger">Delete Recipe</button>
+    </div>
+</div>
