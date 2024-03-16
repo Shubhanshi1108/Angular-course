@@ -1,11 +1,12 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import {  Injectable } from '@angular/core';
 import { Ingredients } from '../shared/ingredients.model';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShoppingListService {
-  ingredientChanged = new EventEmitter<Ingredients[]>();
+  ingredientChanged = new Subject<Ingredients[]>();
 
   private ingredients: Ingredients[] = [
     new Ingredients('Coffee', 2),
@@ -19,7 +20,7 @@ export class ShoppingListService {
 
   addIngredient(ingredient: Ingredients) {
     this.ingredients.push(ingredient);
-    this.ingredientChanged.emit(this.ingredients.slice());
+    this.ingredientChanged.next(this.ingredients.slice());
   }
 
   addListOfIngredients(ingredients:Ingredients[]){
@@ -29,6 +30,6 @@ export class ShoppingListService {
 
     ///'...' this is spread operator used to spread a list into single elements
     this.ingredients.push(...ingredients);
-    this.ingredientChanged.emit(this.ingredients.slice());
+    this.ingredientChanged.next(this.ingredients.slice());
   }
 }

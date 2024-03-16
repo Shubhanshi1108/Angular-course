@@ -1,4 +1,5 @@
-<a href="#" class="list-group-item clearfix mt-2" (click)="onSelectedItem()">
+<a style="cursor: pointer;" class="list-group-item clearfix mt-2 no-decoration" routerLinkActive="active" 
+[routerLink]="[index]">
     <div class="row">
         <div class="col-8">
             <h5 class="list-group-item-heading">{{recipe.name}} </h5>

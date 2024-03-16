@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Recipe } from '../../model/recipe.model';
 import { RecipeService } from '../../recipe.service';
 
@@ -8,11 +8,10 @@ import { RecipeService } from '../../recipe.service';
   styleUrls: ['./recipe-item.component.css']
 })
 export class RecipeItemComponent {
-  //input allow to bind this property from outside
   @Input() recipe: Recipe;
+  @Input() index: number;
+
   constructor(private recipeService: RecipeService) { }
 
-  onSelectedItem() {
-    this.recipeService.recipeSelected.emit(this.recipe);
-  }
+
 }
